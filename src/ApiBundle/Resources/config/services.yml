@@ -1,0 +1,13 @@
+services:
+  ApiBundle\Controller\CashController:
+      arguments:
+          - '@ApiBundle\Service\MinimumNotesCashAllocateStrategy'
+
+  ApiBundle\Service\MinimumNotesCashAllocateStrategy:
+      arguments:
+          - '%api.configuration.available_notes%'
+
+  api.request_listener:
+      class: ApiBundle\EventListener\ApiRequestListener
+      tags:
+          - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }

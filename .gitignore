@@ -1,0 +1,23 @@
+# Cache and logs (Symfony3)
+/var/cache/*
+/var/logs/*
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+
+# Managed by Composer
+/app/bootstrap.php.cache
+/var/bootstrap.php.cache
+/bin/*
+!bin/console
+!bin/composer
+!bin/symfony_requirements
+/vendor/
+
+# Composer PHAR
+/composer.phar
+
+# PHPstorm
+.idea/
+
+/app/config/parameters.yml
+.web-server-pid
