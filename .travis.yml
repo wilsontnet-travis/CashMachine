@@ -3,7 +3,7 @@ dist: trusty
 # Project language
 language: php
 php:
-    - 7.1
+    - 7.1.13
 
 # Allows use container-based infrastructure
 sudo: false
@@ -28,9 +28,8 @@ install:
 
 # Run script
 script:
-  - vendor/bin/phpunit --testsuite api
+  - bin/phpunit --testsuite api
 
 # After a build, send email notification with the build results
 notifications:
   email: tangwai@gmail.com
-#trigger travis
