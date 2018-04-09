@@ -1,0 +1,35 @@
+dist: trusty
+
+# Project language
+language: php
+php:
+    - 7.1
+
+# Allows use container-based infrastructure
+sudo: false
+
+# Cache composer packages so "composer install" is faster
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
+# Define an environment variable
+env:
+  - SYMFONY_ENV="test"
+
+# Update composer
+before-install:
+  - composer self-update
+
+# Install composer dependencies,
+install:
+  - cp app/config/parameters.yml.dist app/config/parameters.yml
+  - composer install
+
+# Run script
+script:
+  - vendor/bin/phpunit --testsuite api
+
+# After a build, send email notification with the build results
+notifications:
+  email: tangwai@gmail.com
